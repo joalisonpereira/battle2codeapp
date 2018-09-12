@@ -1,21 +1,24 @@
 import { StyleSheet } from 'react-native';
-import { colors,metrics,fonts } from '../../styles';
+import { colors,metrics } from '../../styles';
 
 const styles = StyleSheet.create({
 	container:{
 		flex:1,
 		justifyContent:'center',
-		backgroundColor: '#FFF',
+		backgroundColor: colors.terciary,
 		padding: metrics.doubleBaseMargin
 	},
-	input:{
-		padding:metrics.baseMargin,
-		borderWidth:1,
-		borderColor:colors.primary,
-		borderRadius:metrics.baseRadius,
-		backgroundColor:colors.secundary,
-		fontSize:fonts.input,
+	titleContainer:{
+		alignSelf:'center',
+		justifyContent:'center'
+	},
+	title:{
+		fontSize:50,
 		fontWeight:'bold',
+		color:colors.primary
+	},
+	form:{
+		marginTop:10
 	},
 	logoContainer:{
 		alignSelf:'center'

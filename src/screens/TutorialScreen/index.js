@@ -7,14 +7,10 @@ import { colors,metrics } from '../../styles';
 
 class TutorialScreen extends Component {
 
-	static navigationOptions = {
-		header : null
-	}
 	//Ler documentação dos botoes, loading is cool
 	render() {
 		return (
 		  <View style={styles.container}>
-		  	<Text>Componente do tutorial</Text>
 		  	<Button
 			  title='CONTINUAR'
 			  borderRadius={metrics.baseRadius}
