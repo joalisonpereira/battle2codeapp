@@ -3,10 +3,14 @@ import { colors,metrics } from '../../styles';
 
 const styles = StyleSheet.create({
 	container:{
-		flex:1,
-		backgroundColor:colors.secundary,
-		justifyContent:'center',
+		margin:metrics.smallMargin
 	},
+	text:{
+		color: '#EA3C53',
+		fontWeight: 'bold',
+		textAlign: 'center',
+		fontSize: 15
+	}
 });
 
 export default styles;

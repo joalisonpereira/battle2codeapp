@@ -3,10 +3,8 @@ import { colors,metrics } from '../../styles';
 
 const styles = StyleSheet.create({
 	container:{
-		flex:1,
-		backgroundColor:colors.secundary,
-		justifyContent:'center',
-	},
+		marginVertical: metrics.doubleBaseMargin
+	}
 });
 
 export default styles;

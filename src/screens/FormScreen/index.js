@@ -35,8 +35,8 @@ class FormScreen extends React.Component {
 		const { input1,input2 } = this.state;
 		this.setState({
 			errors : {
-				input1 : input1.length<5,
-				input2 : input2.length<5
+				input1 : input1.length < 5,
+				input2 : input2.length < 5
 			}
 		});
 	}
@@ -85,6 +85,7 @@ class FormScreen extends React.Component {
 					  backgroundColor={colors.primary}
 					  containerViewStyle={styles.button}
 					  fontWeight="bold"
+					  fontSize={18}
 					  onPress={()=>this._submit()}
 					/>
 				</FormControl>

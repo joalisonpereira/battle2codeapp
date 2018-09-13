@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
 	container:{
 		flex:1,
 		justifyContent:'center',
-		backgroundColor: colors.terciary,
+		backgroundColor: colors.secundary,
 		padding: metrics.doubleBaseMargin
 	},
 	titleContainer:{
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
 	title:{
 		fontSize:50,
 		fontWeight:'bold',
-		color:colors.primary
+		color:colors.text
 	},
 	form:{
 		marginTop:10

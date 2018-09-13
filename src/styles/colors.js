@@ -1,7 +1,11 @@
 const colors = {
-  primary: '#8A8604',
-  secundary: '#f4f2b1',
-  terciary: '#f3efca',
+  primary: '#00B6D5',
+  secundary: '#FBD46B',
+  input: '#FCE4A1',
+  text : '#444'
 };
-
 export default colors;
+
+//Orange #f2a104
+
+//Blue #0AAFF1
