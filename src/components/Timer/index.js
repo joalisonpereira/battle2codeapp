@@ -1,5 +1,6 @@
 import React from 'react';
 import { View,StyleSheet,Text,ActivityIndicator } from 'react-native';
+import { colors } from '../../styles';
 
 const Timer = ({value,color}) => (
 	<View style={styles.container}>
@@ -13,20 +14,13 @@ const Timer = ({value,color}) => (
 
 const styles = StyleSheet.create({
 	container:{
-		position:'absolute',
-		top:-6,
-		right:0,
-	},
-	indicator:{
-		position:'absolute',
-		top:0,
-		right:0,
+		alignItems:'center',
+		justifyContent:'center'
 	},
 	value:{
-		position:'absolute',
-		top:7.5,
-		right:14,
-		fontWeight:'bold'
+		position: 'absolute',
+		fontWeight: 'bold',
+		color: colors.text
 	}
 
 });

@@ -1,4 +1,4 @@
-import { StyleSheet,Dimensions } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { colors,metrics } from '../../styles';
 
 const styles = StyleSheet.create({
@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
 	infoText:{
 		fontSize: 17,
 		fontWeight: 'bold',
+		color: colors.text
 	},
 	questionContainer:{
 		height: metrics.screenWidth / 2.5,
@@ -37,6 +38,7 @@ const styles = StyleSheet.create({
 		transform: [{ 
 			rotate : '180deg' 
 		}],
+		paddingBottom: 35,
 	}
 });
 

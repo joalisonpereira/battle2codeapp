@@ -7,11 +7,11 @@ import Timer from '../Timer';
 import { colors,metrics } from '../../styles';
 import styles from './styles'
 
-const PlayerView = ({playerName,rotate=false}) => (
+const PlayerView = ({name,rotate=false}) => (
 	<View style={[styles.container,rotate ? styles.rotate : null]}>
 		<View style={styles.infoContainer}>
-			<Text style={styles.infoText}>{playerName}</Text>
-			<Timer color={colors.primary} value="5" />
+			<Text style={styles.infoText}>{name}</Text>
+			<Timer color={colors.text} value="15" />
 		</View>
 		<View style={styles.questionContainer}>
 			<Text style={styles.questionText}>

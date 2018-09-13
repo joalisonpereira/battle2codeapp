@@ -8,6 +8,10 @@ const styles = StyleSheet.create({
 		justifyContent:'space-around',
 		backgroundColor: colors.secundary,
 	},
+	divider:{
+		borderBottomColor: colors.input,
+		borderBottomWidth: 3,
+	}
 });
 
 export default styles;

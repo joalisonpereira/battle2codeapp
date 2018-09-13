@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { View, Text } from 'react-native';
 
 import PlayerView from '../../components/PlayerView';
 
@@ -9,8 +9,9 @@ class BattleScreen extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<PlayerView playerName="Player 1"/>
-				<PlayerView playerName="Player 2" rotate/>
+				<PlayerView name="Heisenberg"/>
+				<View style={styles.divider} />
+				<PlayerView name="Newton" rotate/>
 			</View>
 		);
 	}
