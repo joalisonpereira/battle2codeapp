@@ -11,7 +11,7 @@ const PlayerView = ({name,rotate=false}) => (
 	<View style={[styles.container,rotate ? styles.rotate : null]}>
 		<View style={styles.infoContainer}>
 			<Text style={styles.infoText}>{name}</Text>
-			<Timer color={colors.text} value="15" />
+			<Timer color={colors.primary} value="5" onFinish={() => console.log("termiunou")} />
 		</View>
 		<View style={styles.questionContainer}>
 			<Text style={styles.questionText}>
