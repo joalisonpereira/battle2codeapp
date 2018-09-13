@@ -5,9 +5,9 @@ import FormScreen from '../screens/FormScreen';
 import BattleScreen from '../screens/BattleScreen';
 
 const Router = createStackNavigator({
-	Form : FormScreen,
 	Battle : BattleScreen,
 	Tutorial : TutorialScreen,
+	Form : FormScreen,
 },{
 	navigationOptions : {
 		header : null
