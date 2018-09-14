@@ -1,13 +1,11 @@
 import React from 'react';
 import {View, Text, Image} from 'react-native';
 
-import { Button } from 'react-native-elements';
-
 import Input from '../../components/Input';
 import FormControl from '../../components/FormControl';
 import ErrorMessage from '../../components/ErrorMessage';
+import Button from '../../components/Button';
 
-import { colors,metrics } from '../../styles';
 import styles from './styles';
 
 class FormScreen extends React.Component {
@@ -81,12 +79,8 @@ class FormScreen extends React.Component {
 				<FormControl>
 					<Button
 					  title="COMEÇAR BATALHA"
-					  borderRadius={metrics.baseRadius}
-					  backgroundColor={colors.primary}
-					  containerViewStyle={styles.button}
-					  fontWeight="bold"
-					  fontSize={18}
 					  onPress={()=>this._submit()}
+					  containerViewStyle={styles.button}
 					/>
 				</FormControl>
 			  </View>

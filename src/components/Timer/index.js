@@ -34,7 +34,8 @@ const styles = StyleSheet.create({
 	value:{
 		position: 'absolute',
 		fontWeight: 'bold',
-		color: colors.text
+		color: colors.text,
+		paddingBottom:1
 	}
 
 });

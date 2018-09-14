@@ -1,7 +1,7 @@
 import React from 'react';
 import { View,Text,ActivityIndicator } from 'react-native';
-import { Button } from 'react-native-elements';
 
+import Button from '../../components/Button';
 import Timer from '../Timer';
 
 import { colors,metrics } from '../../styles';
@@ -21,18 +21,12 @@ const PlayerView = ({name,rotate=false}) => (
 		<View style={styles.buttonContainer}>
 			<Button
 			  title="VERDADEIRO"
-			  borderRadius={metrics.baseRadius}
-			  backgroundColor="#00A86B"
-			  fontWeight="bold"
-			  fontSize={18}
+			  color="#00A86B"
 			  onPress={()=>{}}
 			/>
 			<Button
 			  title="FALSO"
-			  borderRadius={metrics.baseRadius}
-			  backgroundColor="#EA3C53"
-			  fontWeight="bold"
-			  fontSize={18}
+			  color="#EA3C53"
 			  onPress={()=>{}}
 			/>
 		</View>

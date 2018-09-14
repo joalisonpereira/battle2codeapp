@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { View,Text } from 'react-native';
-import { Button } from 'react-native-elements'
+
+import Button from '../../components/Button'
 
 import styles from './styles';
-import { colors,metrics } from '../../styles';
 
 class TutorialScreen extends Component {
 
@@ -11,13 +11,12 @@ class TutorialScreen extends Component {
 	render() {
 		return (
 		  <View style={styles.container}>
-		  	<Button
-			  title='CONTINUAR'
-			  borderRadius={metrics.baseRadius}
-			  backgroundColor={colors.primary}
-			  fontWeight="bold"
-			  onPress={()=>this.props.navigation.replace("Form")}
-			/>
+		  	<View style={styles.wrapper}>
+		  		<Button
+				  title='CONTINUAR AGORA'
+				  onPress={()=>this.props.navigation.replace("Form")}
+				/>
+		  	</View>
 		  </View>
 		);
 	}
