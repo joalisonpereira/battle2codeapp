@@ -29,7 +29,7 @@ class WinnerScreen extends Component {
             <Button
               title="VER RANKING"
               color={colors.secundary}
-              onPress={()=>{}}
+              onPress={() => this.props.navigation.replace('Ranking')}
             />  
       	</View>
       </View>

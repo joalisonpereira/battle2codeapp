@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
+import winnerReducer from './winnerReducer';
+
 const rootReducer = combineReducers({
-	test : (state=[],action) => {
-		return state;
-	}
+	winners : winnerReducer
 });
 
 export default rootReducer;

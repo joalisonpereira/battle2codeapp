@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { colors,metrics } from '../../styles';
+import { colors,metrics,fonts } from '../../styles';
 
 const styles = StyleSheet.create({
 	container:{
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
 		justifyContent:'center'
 	},
 	title:{
-		fontSize:50,
+		fontSize:fonts.title,
 		fontWeight:'bold',
 		color:colors.text
 	},

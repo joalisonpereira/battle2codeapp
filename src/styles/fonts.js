@@ -1,4 +1,5 @@
 const fonts = {
+  title:45,
   input: 20,
   button: 18,
   regular: 14,
