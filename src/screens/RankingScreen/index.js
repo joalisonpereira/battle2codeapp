@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { View, Text, Image, ScrollView } from 'react-native';
-import { connect,bindActionCreators } from 'react-redux';
-
-import { requestWinners } from '../../store/actions';
+import { connect } from 'react-redux';
 
 import Button from '../../components/Button';
 import FormControl from '../../components/FormControl';
 import RankingList from '../../components/RankingList';
 import styles from './styles';
+
+import { requestWinners } from '../../store/actions';
 
 class RankingScreen extends Component {
 
@@ -36,6 +36,17 @@ class RankingScreen extends Component {
 			</ScrollView>
 		);
 	}
+	
+	_renderButton(){
+		return(
+			<FormControl style={{marginTop:25}}>
+				<Button
+					title="JOGAR AGORA"
+					onPress={ () => this.props.navigation.replace("Form")}
+				/>
+			</FormControl>
+		);
+	}
 
 	render() {
 		const { loading } = this.props.winners;
@@ -43,12 +54,7 @@ class RankingScreen extends Component {
 			<View style={styles.container}>
 				<View style={[styles.wrapper, loading ? styles.centerLogo : null ]}>
 					{ loading ? this._renderLoading() : this._renderContent()}
-					<FormControl style={{marginTop:25}}>
-						<Button
-							title="JOGAR AGORA"
-							onPress={ () => this.props.navigation.replace("Form")}
-						/>
-					</FormControl>
+					{ !loading ? this._renderButton() : null}
 				</View>
 			</View>
 		);

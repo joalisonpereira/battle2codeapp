@@ -12,7 +12,7 @@ const Timer = ({value,color,onFinish}) => (
 			size="large"
 		/>
 		<TimerCountdown
-            initialSecondsRemaining={1000*15}
+            initialSecondsRemaining={1000*value}
             onTimeElapsed={onFinish}
             formatSecondsRemaining={formatTime}
             allowFontScaling={true}

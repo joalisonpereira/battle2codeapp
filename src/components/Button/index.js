@@ -4,7 +4,7 @@ import {StyleSheet} from 'react-native';
 import { Button as ButtonDefault } from 'react-native-elements';
 import { colors,fonts,metrics } from '../../styles';
 
-const Button = ({title,color=colors.primary,onPress,containerViewStyle=null}) => (
+const Button = ({title,onPress,color=colors.primary,containerViewStyle=null,loading=false}) => (
 	<ButtonDefault
 	  title={title}
 	  borderRadius={metrics.baseRadius}
@@ -12,6 +12,7 @@ const Button = ({title,color=colors.primary,onPress,containerViewStyle=null}) =>
 	  fontWeight="bold"
 	  fontSize={fonts.button}
 	  onPress={onPress}
+	  loading={loading}
 	  containerViewStyle={containerViewStyle}
 	/>
 );

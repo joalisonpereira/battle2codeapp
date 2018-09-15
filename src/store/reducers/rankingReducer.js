@@ -1,8 +1,4 @@
-import { 
-	REQUEST_WINNERS, 
-	SUCCESS_REQUEST_WINNERS, 
-	ERROR_REQUEST_WINNERS 
-} from '../actions';
+import { Types } from '../actions';
 
 const INITIAL_STATE = {
 	data : [],
@@ -10,17 +6,17 @@ const INITIAL_STATE = {
 	error : false
 }
 
-const winnerReducer = (state = INITIAL_STATE, action) => {
+const rankingReducer = (state = INITIAL_STATE, action) => {
 	switch(action.type){
-		case REQUEST_WINNERS:
+		case Types.REQUEST_WINNERS:
 			return {...state, loading:true};
-		case SUCCESS_REQUEST_WINNERS:
+		case Types.SUCCESS_REQUEST_WINNERS:
 			return {data: action.payload.data,loading:false,error:false};
-		case ERROR_REQUEST_WINNERS:
+		case Types.ERROR_REQUEST_WINNERS:
 			return {data:[], loading:false, error:true};
 		default:
 			return state;
 	}
 }
 
-export default winnerReducer;
+export default rankingReducer;

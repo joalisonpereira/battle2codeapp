@@ -12,6 +12,9 @@ const styles = StyleSheet.create({
 		fontWeight:'bold',
 		color: colors.text,
 		textAlign: 'center'
+	},
+	error:{
+		borderColor:'#EA3C53'
 	}
 });
 

@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
 
-import winnerReducer from './winnerReducer';
+import battleReducer from './battleReducer';
+import rankingReducer from './rankingReducer';
 
 const rootReducer = combineReducers({
-	winners : winnerReducer
+	battle : battleReducer,
+	winners : rankingReducer
 });
 
 export default rootReducer;

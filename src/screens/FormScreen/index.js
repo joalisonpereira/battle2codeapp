@@ -1,10 +1,14 @@
 import React from 'react';
 import {View, Text, Image} from 'react-native';
+import { connect } from 'react-redux';
+import { battleStart } from '../../store/actions';
 
 import Input from '../../components/Input';
 import FormControl from '../../components/FormControl';
 import ErrorMessage from '../../components/ErrorMessage';
 import Button from '../../components/Button';
+
+import validateInput from '../../utils/validation';
 
 import styles from './styles';
 
@@ -14,29 +18,39 @@ class FormScreen extends React.Component {
 	  super(props);
 	
 	  this.state = {
-	  	input1 : '',
-	  	input2 : '',
-	  	errors : {
-	  		input1: false,
-	  		input2: false
-	  	}
+	  	input1 : { value:'', error:false},
+	  	input2 : { value:'', error:false}
 	  };
 	}
 
 	_handleChange(key,value){
 		this.setState({
-			[key] : value
+			[key] : {
+				value,
+				error:false
+			}
 		});
 	}
 
 	_submit(){
 		const { input1,input2 } = this.state;
-		this.setState({
-			errors : {
-				input1 : input1.length < 5,
-				input2 : input2.length < 5
-			}
-		});
+		if(validateInput(input1)){
+			this.setState({ input1:{...input1,error:true }});
+			return;
+		}
+		if(validateInput(input2)){
+			this.setState({ input2:{...input2,error:true }});
+			return;
+		}
+		this.props.battleStart(input1.value,input2.value);
+	}
+	
+	//Rever uso do método
+	componentWillReceiveProps(nextProps){
+		const { battle_token } = nextProps.battle;
+		if(battle_token!==null){
+			this.props.navigation.replace('Battle');
+		}
 	}
 
 	render() {
@@ -50,12 +64,13 @@ class FormScreen extends React.Component {
 					<Input
 						style={styles.input}
 						placeholder="Player 1"
-						value={this.state.input1}
+						value={this.state.input1.value}
 						onChangeText={value => this._handleChange('input1',value)}
+						errorStyle={this.state.input1.error}
 					/>
 					<ErrorMessage
 						message="Necessário no mínimo 5 caracteres"
-						active={this.state.errors.input1}
+						active={this.state.input1.error}
 					/>
 				</FormControl>
 				<View style={styles.logoContainer}>
@@ -68,19 +83,25 @@ class FormScreen extends React.Component {
 					<Input
 						style={styles.input}
 						placeholder="Player 2"
-						value={this.state.input2}
+						value={this.state.input2.value}
 						onChangeText={value => this._handleChange('input2',value)}
+						errorStyle={this.state.input2.error}
 					/>
 					<ErrorMessage
 						message="Necessário no mínimo 5 caracteres"
-						active={this.state.errors.input2}
+						active={this.state.input2.error}
 					/>
 				</FormControl>
+				<ErrorMessage
+					message="Falha ao iniciar batalha"
+					active={this.props.battle.error}
+				/>
 				<FormControl>
 					<Button
 					  title="COMEÇAR BATALHA"
 					  onPress={()=>this._submit()}
 					  containerViewStyle={styles.button}
+					  loading={this.props.battle.loading}
 					/>
 				</FormControl>
 			  </View>
@@ -89,4 +110,12 @@ class FormScreen extends React.Component {
 	}
 }
 
-export default FormScreen;
+const mapStateToProps = state => ({
+	battle : state.battle
+});
+
+const mapDispatchToProps = {
+	battleStart
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(FormScreen);
