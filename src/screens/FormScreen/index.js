@@ -45,14 +45,6 @@ class FormScreen extends React.Component {
 		this.props.battleStart(input1.value,input2.value);
 	}
 	
-	//Rever uso do método
-	componentWillReceiveProps(nextProps){
-		const { battle_token } = nextProps.battle;
-		if(battle_token!==null){
-			this.props.navigation.replace('Battle');
-		}
-	}
-
 	render() {
 		return(
 		  <View style={styles.container}>

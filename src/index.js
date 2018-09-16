@@ -1,15 +1,19 @@
 import React from 'react';
-import { Provider } from 'react-redux';
+import { Provider,connect } from 'react-redux';
+import { reduxifyNavigator } from 'react-navigation-redux-helpers';
 
+import store from './store';
 import Router from './routes';
-import store from './store'
+
+const RouterNavigator = reduxifyNavigator(Router, "root");
+const mapStateToProps = (state) => ({ state: state.nav });
+const RouterNavigatorState = connect(mapStateToProps)(RouterNavigator);
 
 const App = () => (
   <Provider store={store}>
-	<Router/>
+	<RouterNavigatorState/>
   </Provider>
 );
 
 export default App;
 
-//Configuração do ip dinamico/expo

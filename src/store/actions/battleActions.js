@@ -16,7 +16,15 @@ export const battleStart = (player1,player2) => ({
 				questionId:1,
 				score:0
 			}
-		}
+		},
+		winner:null
 	}
 });
 
+export const answerQuestion = (playerId,answerId) => ({
+	type: Types.ANSWER_QUESTION,
+	payload:{
+		playerId,
+		answerId
+	}
+});

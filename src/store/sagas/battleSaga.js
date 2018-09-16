@@ -1,5 +1,6 @@
+import { put,call } from 'redux-saga/effects';
+import { NavigationActions } from 'react-navigation';
 import api from '../../config/api';
-import { call,put } from 'redux-saga/effects';
 import { Types } from '../actions';
 
 export function* battleStart(action){
@@ -18,8 +19,9 @@ export function* battleStart(action){
 				}
 			}
 		});
+		console.log(NavigationActions.navigate({ routeName:'Battle' }));
+		yield put(NavigationActions.navigate({ routeName:'Battle' }));
 	}catch(e){
-		console.log(e);
 		yield put({
 			type: Types.BATTLE_START_ERROR
 		});

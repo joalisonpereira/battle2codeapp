@@ -6,6 +6,7 @@ const INITIAL_STATE = {
 	questions:[],
 	loading : false,
 	error : false,
+	winner : null
 };
 
 const battleReducer = (state = INITIAL_STATE,action) => {
@@ -27,11 +28,13 @@ const answerQuestion = (state,action) => {
 	const { playerId,answerId } = action.payload;
 	const newState = {...state};
 	const player = newState.players['player' + playerId];
-	const question = newState.questions.find(question => question.id == (player.questionId));
-	if(question.answer==answerId){
+	const { questions } = newState;
+	const question = questions.find(question => question.id == (player.questionId));
+	if(player.questionId++==questions.length){
+		return {...newState, winner:player.name};
+	}else if(question.answer==answerId){
 		player.score+=10;
 	}
-	player.questionId++;
 	return newState;
 }
 

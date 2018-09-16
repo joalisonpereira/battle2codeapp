@@ -4,48 +4,35 @@ import { connect } from 'react-redux';
 import { answerQuestion } from '../../store/actions';
 
 import Button from '../../components/Button';
-
 import { colors,metrics } from '../../styles';
 import styles from './styles'
 
-class QuestionView extends React.Component{
-	
-	_selectPlayer(){
-		return this.props.battle.players['player' + this.props.id];
-	}
-
-	_selectQuestion(id){
-		return this.props.battle.questions[id].question;
-	}
-
-	render(){
-		const player = this._selectPlayer();
-		const question = this._selectQuestion(player.questionId - 1);
-		return(
-			<View style={[styles.container, this.props.rotate ? styles.rotate : null]}>
-				<View style={styles.infoContainer}>
-					<Text style={styles.infoText}>{player.name}</Text>
-				</View>
-				<View style={styles.questionContainer}>
-					<Text style={styles.questionText}>
-						{question}
-					</Text>
-				</View>
-				<View style={styles.buttonContainer}>
-					<Button
-					  title="VERDADEIRO"
-					  color="#00A86B"
-					  onPress={()=>{this.props.answerQuestion(player.id,1)}}
-					/>
-					<Button
-					  title="FALSO"
-					  color="#EA3C53"
-					  onPress={()=>{this.props.answerQuestion(player.id,0)}}
-					/>
-				</View>
+const PlayerView = ({battle:{questions}, player, answerQuestion, rotate}) => {
+	const question = questions[player.questionId - 1];
+	return(
+		<View style={[styles.container, rotate ? styles.rotate : null]}>
+			<View style={styles.infoContainer}>
+				<Text style={styles.infoText}>{player.name}</Text>
 			</View>
-		);
-	}
+			<View style={styles.questionContainer}>
+				<Text style={styles.questionText}>
+					{question.question}
+				</Text>
+			</View>
+			<View style={styles.buttonContainer}>
+				<Button
+				  title="VERDADEIRO"
+				  color="#00A86B"
+				  onPress={()=>{answerQuestion(player.id,1)}}
+				/>
+				<Button
+				  title="FALSO"
+				  color="#EA3C53"
+				  onPress={()=>{answerQuestion(player.id,0)}}
+				/>
+			</View>
+		</View>
+	);
 }
 
 const mapStateToProps = state => ({
@@ -56,4 +43,4 @@ const mapDispatchToProps = {
 	answerQuestion
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(QuestionView);
+export default connect(mapStateToProps,mapDispatchToProps)(PlayerView);

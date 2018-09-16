@@ -1,14 +1,19 @@
 import { createStore,applyMiddleware } from 'redux';
-import rootReducer from './reducers';
-
 import createSagaMiddleware from 'redux-saga';
+import { createReactNavigationReduxMiddleware } from 'react-navigation-redux-helpers';
+
+import rootReducer from './reducers';
 import rootSaga from './sagas';
 
+const navigationMiddleware = createReactNavigationReduxMiddleware(
+	"root",
+	state => state.nav
+);
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
 	rootReducer,
-	applyMiddleware(sagaMiddleware)
+	applyMiddleware(sagaMiddleware,navigationMiddleware)
 );
 
 sagaMiddleware.run(rootSaga);
