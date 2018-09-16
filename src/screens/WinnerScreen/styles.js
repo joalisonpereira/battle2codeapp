@@ -29,6 +29,10 @@ const styles = StyleSheet.create({
 	},
 	image:{
 		aspectRatio: 1
+	},
+	centerRender:{
+		alignItems:'center',
+		justifyContent:'center',
 	}
 });
 

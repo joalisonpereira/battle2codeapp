@@ -9,18 +9,42 @@ import { colors } from '../../styles';
 import styles from './styles';
 
 class WinnerScreen extends Component {
+  _renderContentWinner(){
+    const { winner } = this.props.battle; 
+    return(
+      <View style={styles.centerRender}>
+        <Image
+          source={require('../../assets/images/crown.png')}
+          style={styles.image}
+        />
+        <View style={styles.info}>
+          <Text style={styles.infoText}>PARABENS {this.props.battle.winner.name}</Text>
+          <Text style={styles.infoText}>PONTUAÇÃO : {this.props.battle.winner.score}</Text>
+        </View>
+      </View>
+    );
+  }
+
+  _renderNullWinner(){
+    return(
+      <View style={styles.centerRender}>
+        <Image
+          source={require('../../assets/images/smile.jpg')}
+          style={styles.image}
+        />
+        <View style={styles.info}>
+          <Text style={styles.infoText}>PARTIDA EMPATADA</Text>
+          <Text style={styles.infoText}>PONTUAÇÃO : {this.props.battle.winner.score}</Text>
+        </View>
+      </View>
+    );
+  }
+
   render() {
     return (
       <View style={styles.container}>
-      	<View style={styles.wrapper}>
-      		<Image
-    				source={require('../../assets/images/crown.png')}
-    				style={styles.image}
-      		/>
-      		<View style={styles.info}>
-      			<Text style={styles.infoText}>PARABENS {this.props.battle.winner.name}</Text>
-      			<Text style={styles.infoText}>PONTUAÇÃO : {this.props.battle.winner.score}</Text>
-      		</View>
+        <View style={styles.wrapper}>
+            { this.props.battle.winner.name ? this._renderContentWinner() : this._renderNullWinner() }
             <FormControl>
               <Button
                 title="JOGAR NOVAMENTE"

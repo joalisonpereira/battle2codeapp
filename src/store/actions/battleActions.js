@@ -43,7 +43,10 @@ function selectWinner(battle){
 	}else if(player1.score < player2.score){
 		winner = player2;
 	}else{
-		return null;
+		return {
+			name : null,
+			score : player1.score
+		}
 	}
 	return {
 		battle_token: battle.battle_token,

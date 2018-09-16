@@ -32,7 +32,7 @@ class PlayerView extends React.Component{
 					  title="VERDADEIRO"
 					  color="#00A86B"
 					  onPress={() => {
-					  	return player.questionId>1 ? 
+					  	return player.questionId==battle.questions.length ? 
 					  		storeWinner(battle) 
 					  	: 
 					  		answerQuestion(player.id,1);
@@ -42,7 +42,7 @@ class PlayerView extends React.Component{
 					  title="FALSO"
 					  color="#EA3C53"
 					  onPress={() => {
-					  	return player.questionId>1 ? 
+					  	return player.questionId==battle.questions.length ? 
 					  		storeWinner(battle) 
 					  	: 
 					  		answerQuestion(player.id,0);

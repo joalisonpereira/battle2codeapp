@@ -19,6 +19,7 @@ const battleReducer = (state = INITIAL_STATE,action) => {
 		case Types.ANSWER_QUESTION:
 			return getStateAfterQuestion(state,action);
 		case Types.STORE_WINNER_SUCCESS:
+		case Types.STORE_WINNER_NULL:
 			return {...state,winner:action.payload.winner};
 		default:
 			return state;

@@ -16,6 +16,11 @@ const navReducer = (state,action) => {
 				NavigationActions.navigate({ routeName: 'Winner' })),
 				state
             break;
+        case Types.STORE_WINNER_NULL:
+        	newState = Router.router.getStateForAction(
+				NavigationActions.navigate({ routeName: 'Winner' })),
+				state
+            break;
 		default:
             newState = Router.router.getStateForAction(action, state);
             break;
