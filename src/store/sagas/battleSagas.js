@@ -19,8 +19,6 @@ export function* battleStart(action){
 				}
 			}
 		});
-		console.log(NavigationActions.navigate({ routeName:'Battle' }));
-		yield put(NavigationActions.navigate({ routeName:'Battle' }));
 	}catch(e){
 		yield put({
 			type: Types.BATTLE_START_ERROR
@@ -30,12 +28,17 @@ export function* battleStart(action){
 
 export function* storeWinner(action){
 	try{
-		const headers = action.payload.winner;
-		const response = yield call(api.post,'/winners',headers);
-		yield put({message : 'success'});
+		const params = action.payload.winner;
+		const response = yield call(api.post,'/winners',params);
+		yield put({
+			type: Types.STORE_WINNER_SUCCESS,
+			payload: {
+				winner : params
+			}
+		});
 	}catch(e){
 		yield put({
-	 		type: Types.ERROR_REQUEST_WINNERS,
+	 		type: Types.STORE_WINNER_ERROR,
 	 		payload: {
 	 			message: 'Loading error'
 	 		}

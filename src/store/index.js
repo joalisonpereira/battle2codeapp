@@ -5,11 +5,12 @@ import { createReactNavigationReduxMiddleware } from 'react-navigation-redux-hel
 import rootReducer from './reducers';
 import rootSaga from './sagas';
 
+const sagaMiddleware = createSagaMiddleware();
+
 const navigationMiddleware = createReactNavigationReduxMiddleware(
 	"root",
 	state => state.nav
 );
-const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
 	rootReducer,

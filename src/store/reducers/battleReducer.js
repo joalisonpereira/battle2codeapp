@@ -5,8 +5,7 @@ const INITIAL_STATE = {
 	battle_token:null,
 	questions:[],
 	loading : false,
-	error : false,
-	winner : null
+	error : false
 };
 
 const battleReducer = (state = INITIAL_STATE,action) => {
@@ -18,23 +17,21 @@ const battleReducer = (state = INITIAL_STATE,action) => {
 		case Types.BATTLE_START_ERROR:
 			return {...state, error:true, loading:false};
 		case Types.ANSWER_QUESTION:
-			return answerQuestion(state,action);
+			return getStateAfterQuestion(state,action);
+		case Types.STORE_WINNER_SUCCESS:
+			return {...state,winner:action.payload.winner};
 		default:
 			return state;
 	}
 }
 
-const answerQuestion = (state,action) => {
-	const { playerId,answerId } = action.payload;
+function getStateAfterQuestion(state,action){
 	const newState = {...state};
+	const { playerId,answer } = action.payload;
 	const player = newState.players['player' + playerId];
-	const { questions } = newState;
-	const question = questions.find(question => question.id == (player.questionId));
-	if(player.questionId++==questions.length){
-		return {...newState, winner:player.name};
-	}else if(question.answer==answerId){
-		player.score+=10;
-	}
+	const question = newState.questions.find(question => question.id == player.questionId);
+	player.score = question.answer==answer ? player.score+10 : player.score;
+	player.questionId++;
 	return newState;
 }
 

@@ -1,5 +1,4 @@
 export * from './requestWinners';
-export * from './storeWinner';
 export * from './battleActions';
 
 export const Types = { 
@@ -10,6 +9,8 @@ export const Types = {
 	BATTLE_START : 'Battle/BATTLE_START',
 	BATTLE_START_SUCCESS : 'Battle/BATTLE_START_SUCCESS', 
 	BATTLE_START_ERROR : 'Battle/BATTLE_START_ERROR',
-	ANSWER_QUESTION : 'Battle/ANSWER_QUESTION',	
-	STORE_WINNER : 'Battle/STORE_WINNER'
+	ANSWER_QUESTION : 'Battle/ANSWER_QUESTION',
+	STORE_WINNER : 'Battle/STORE_WINNER',
+	STORE_WINNER_SUCCESS : 'Battle/STORE_WINNER_SUCCESS',
+	STORE_WINNER_ERROR : 'Battle/STORE_WINNER_ERROR'
 };

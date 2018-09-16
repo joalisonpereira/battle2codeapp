@@ -16,15 +16,38 @@ export const battleStart = (player1,player2) => ({
 				questionId:1,
 				score:0
 			}
-		},
-		winner:null
+		}
 	}
 });
 
-export const answerQuestion = (playerId,answerId) => ({
+export const answerQuestion = (playerId,answer) => ({
 	type: Types.ANSWER_QUESTION,
 	payload:{
 		playerId,
-		answerId
+		answer
 	}
 });
+
+export const storeWinner = battle => ({
+	type : Types.STORE_WINNER,
+	payload : {
+		winner: selectWinner(battle)
+	}
+});
+
+function selectWinner(battle){
+	const { player1,player2 } = battle.players;
+	let winner=null;
+	if(player1.score > player2.score){
+		winner = player1;
+	}else if(player1.score < player2.score){
+		winner = player2;
+	}else{
+		return null;
+	}
+	return {
+		battle_token: battle.battle_token,
+		name : winner.name,
+		score : winner.score
+	};
+}

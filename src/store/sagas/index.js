@@ -1,6 +1,6 @@
 import { all,takeLatest } from 'redux-saga/effects';
 import { getWinners } from './rankingSaga';
-import { battleStart,storeWinner } from './battleSaga';
+import { battleStart,storeWinner } from './battleSagas';
 import { Types } from '../actions';
 
 export default function* rootSaga(){
