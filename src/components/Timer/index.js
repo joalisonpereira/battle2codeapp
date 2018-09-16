@@ -29,7 +29,7 @@ const formatTime = time => {
 const styles = StyleSheet.create({
 	container:{
 		alignItems:'center',
-		justifyContent:'center'
+		justifyContent:'center',
 	},
 	value:{
 		position: 'absolute',

@@ -1,37 +1,46 @@
 import React from 'react';
 import { View,Text,ActivityIndicator } from 'react-native';
 import { connect } from 'react-redux';
+import { answerQuestion } from '../../store/actions';
 
 import Button from '../../components/Button';
-import Timer from '../Timer';
 
 import { colors,metrics } from '../../styles';
 import styles from './styles'
 
-class PlayerView extends React.Component{
+class QuestionView extends React.Component{
 	
+	_selectPlayer(){
+		return this.props.battle.players['player' + this.props.id];
+	}
+
+	_selectQuestion(id){
+		return this.props.battle.questions[id].question;
+	}
+
 	render(){
+		const player = this._selectPlayer();
+		const question = this._selectQuestion(player.questionId - 1);
 		return(
 			<View style={[styles.container, this.props.rotate ? styles.rotate : null]}>
 				<View style={styles.infoContainer}>
-					<Text style={styles.infoText}>player</Text>
-					<Timer color={colors.primary} value="5" onFinish={() => console.log("Terminou")} />
+					<Text style={styles.infoText}>{player.name}</Text>
 				</View>
 				<View style={styles.questionContainer}>
 					<Text style={styles.questionText}>
-						00111 + 11111 = 30
+						{question}
 					</Text>
 				</View>
 				<View style={styles.buttonContainer}>
 					<Button
 					  title="VERDADEIRO"
 					  color="#00A86B"
-					  onPress={()=>{}}
+					  onPress={()=>{this.props.answerQuestion(player.id,1)}}
 					/>
 					<Button
 					  title="FALSO"
 					  color="#EA3C53"
-					  onPress={()=>{}}
+					  onPress={()=>{this.props.answerQuestion(player.id,0)}}
 					/>
 				</View>
 			</View>
@@ -41,6 +50,10 @@ class PlayerView extends React.Component{
 
 const mapStateToProps = state => ({
 	battle : state.battle
-})
+});
 
-export default connect(mapStateToProps,null)(PlayerView);
+const mapDispatchToProps = {
+	answerQuestion
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(QuestionView);

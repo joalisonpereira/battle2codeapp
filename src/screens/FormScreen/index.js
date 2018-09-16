@@ -18,16 +18,16 @@ class FormScreen extends React.Component {
 	  super(props);
 	
 	  this.state = {
-	  	input1 : { value:'', error:false},
-	  	input2 : { value:'', error:false}
+	  	input1 : { value:'TestePlayer1', error:false },
+	  	input2 : { value:'TestePlayer2', error:false }
 	  };
 	}
 
 	_handleChange(key,value){
 		this.setState({
 			[key] : {
-				value,
-				error:false
+				value: value.replace(/\s/g, ''),
+				error: false
 			}
 		});
 	}
