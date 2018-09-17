@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
 		backgroundColor: '#FFF',
 		paddingHorizontal: metrics.baseMargin,
 		borderRadius: metrics.baseRadius,
+		elevation:5
 	},
 	centerLogo:{
 		alignItems:'center',

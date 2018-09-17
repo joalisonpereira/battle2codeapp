@@ -39,6 +39,9 @@ const styles = StyleSheet.create({
 			rotate : '180deg' 
 		}],
 		paddingBottom: 35,
+	},
+	disable:{
+		opacity:0
 	}
 });
 

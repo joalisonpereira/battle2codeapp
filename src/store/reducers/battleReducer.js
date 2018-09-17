@@ -31,7 +31,7 @@ function getStateAfterQuestion(state,action){
 	const newState = {...state};
 	const { playerId,answer } = action.payload;
 	const player = newState.players[`player${playerId}`];
-	const question = newState.questions[playerId-1];
+	const question = newState.questions[player.questionId];
 	question.answer==answer ? player.score+=10 : player.score;
 	player.questionId++;
 	return newState;

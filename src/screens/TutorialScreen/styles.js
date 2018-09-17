@@ -15,7 +15,8 @@ const styles = StyleSheet.create({
 		backgroundColor: '#FFF',
 		alignItems:'center',
 		justifyContent:'center',
-		borderRadius: metrics.baseRadius
+		borderRadius: metrics.baseRadius,
+		elevation:5
 	},
 });
 

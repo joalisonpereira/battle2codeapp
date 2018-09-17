@@ -15,16 +15,17 @@ const styles = StyleSheet.create({
 		backgroundColor: '#FFF',
 		alignItems:'center',
 		justifyContent:'center',
-		borderRadius: metrics.baseRadius
+		borderRadius: metrics.baseRadius,
+		elevation:5
 	},
 	info:{
-		marginTop : 40,
+		marginTop : 30,
 		marginBottom : 20,
 		alignItems:'center',
 		justifyContent:'center',
 	},
 	infoText:{
-		fontSize: 25,
+		fontSize: 19,
 		color: colors.text,
 		fontWeight:'bold'
 	},

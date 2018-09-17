@@ -10,6 +10,9 @@ export function* battleStart(action){
 			player1 : players.player1.name,
 			player2 : players.player2.name
 		});
+		
+		if(response.data.questions.length==0) throw 'Sem questões';
+
 		yield put({
 			type: Types.BATTLE_START_SUCCESS,
 			payload:{

@@ -10,17 +10,25 @@ import styles from './styles'
 class PlayerView extends React.Component{
 
 	_getQuestion(id){
-		const questions = this.props.battle.questions;
-		return question = questions[id - 1] != null ? questions[id - 1] : 0;
+		const {questions} = this.props.battle;
+		return question = questions[id] != null ? questions[id] : 'asodijsad';
+	}
+	
+	componentDidUpdate(prevProps){
+		const { battle,player } = this.props;
+		if((player.questionId)==battle.questions.length){
+			this.props.storeWinner(battle);
+		}
 	}
 
 	render(){
-		const { battle,player,rotate,storeWinner,answerQuestion } = this.props;
+		const { battle,player } = this.props;
 		const question = this._getQuestion(player.questionId);
 		return(
-			<View style={[styles.container, rotate ? styles.rotate : null]}>
+			<View style={[styles.container, this.props.rotate ? styles.rotate : null]}>
 				<View style={styles.infoContainer}>
 					<Text style={styles.infoText}>{ player.name }</Text>
+					<Text style={styles.infoText}>Pontos { player.score }</Text>
 				</View>
 				<View style={styles.questionContainer}>
 					<Text style={styles.questionText}>
@@ -31,22 +39,12 @@ class PlayerView extends React.Component{
 					<Button
 					  title="VERDADEIRO"
 					  color="#00A86B"
-					  onPress={() => {
-					  	return player.questionId==battle.questions.length ? 
-					  		storeWinner(battle) 
-					  	: 
-					  		answerQuestion(player.id,1);
-					  }}
+					  onPress={() => this.props.answerQuestion(player.id,1)}
 					/>
 					<Button
 					  title="FALSO"
 					  color="#EA3C53"
-					  onPress={() => {
-					  	return player.questionId==battle.questions.length ? 
-					  		storeWinner(battle) 
-					  	: 
-					  		answerQuestion(player.id,0);
-					  }}
+					  onPress={() => this.props.answerQuestion(player.id,0)}
 					/>
 				</View>
 			</View>
