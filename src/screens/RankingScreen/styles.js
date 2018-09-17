@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
 		marginTop: metrics.doubleBaseMargin
 	},
 	titleText:{
-		color: colors.text,
+		color: colors.secundary,
 		fontSize: fonts.title,
 		fontWeight: 'bold'
 	},

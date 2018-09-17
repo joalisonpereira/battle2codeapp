@@ -9,8 +9,8 @@ const styles = StyleSheet.create({
 		backgroundColor: colors.secundary,
 	},
 	divider:{
-		borderBottomColor: colors.input,
-		borderBottomWidth: 3,
+		borderBottomColor: '#DCDCDC',
+		borderBottomWidth: 5,
 	}
 });
 

@@ -7,7 +7,6 @@ import Input from '../../components/Input';
 import FormControl from '../../components/FormControl';
 import ErrorMessage from '../../components/ErrorMessage';
 import Button from '../../components/Button';
-
 import validateInput from '../../utils/validation';
 
 import styles from './styles';
@@ -49,7 +48,15 @@ class FormScreen extends React.Component {
 		return(
 		  <View style={styles.container}>
 		  	<View style={styles.titleContainer}>
-		  		<Text style={styles.title}>Battle2Code</Text>
+		  		<View>
+		  			<Text style={styles.title}>Battle</Text>
+		  		</View>
+		  		<View>
+		  			<Text style={styles.titleMiddle}>2</Text>
+		  		</View>
+		  		<View>
+		  			<Text style={styles.title}>Code</Text>
+		  		</View>
 		  	</View>
 			<View style={styles.form}>
 				<FormControl>

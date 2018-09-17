@@ -13,6 +13,19 @@ class PlayerView extends React.Component{
 		const {questions} = this.props.battle;
 		return question = questions[id] != null ? questions[id] : 'asodijsad';
 	}
+
+	_selectColor(score){
+		if(score>0){
+			return styles.positive;
+		}else if(score<0){
+			return styles.negative;
+		}
+		return null;
+	}
+
+	_reverse(){
+		return Math.random() >= 0.5;
+	}
 	
 	componentDidUpdate(prevProps){
 		const { battle,player } = this.props;
@@ -27,23 +40,27 @@ class PlayerView extends React.Component{
 		return(
 			<View style={[styles.container, this.props.rotate ? styles.rotate : null]}>
 				<View style={styles.infoContainer}>
-					<Text style={styles.infoText}>{ player.name }</Text>
-					<Text style={styles.infoText}>Pontos { player.score }</Text>
+					<Text style={styles.infoText}>
+						{ player.name }
+					</Text>
+					<Text style={[styles.infoText,this._selectColor(player.score)]}>
+						Pontos { player.score }
+					</Text>
 				</View>
 				<View style={styles.questionContainer}>
 					<Text style={styles.questionText}>
 						{question.question}
 					</Text>
 				</View>
-				<View style={styles.buttonContainer}>
+				<View style={[styles.buttonContainer,this._reverse() ? styles.reverse : null]}>
 					<Button
 					  title="VERDADEIRO"
-					  color="#00A86B"
+					  color={colors.success}
 					  onPress={() => this.props.answerQuestion(player.id,1)}
 					/>
 					<Button
 					  title="FALSO"
-					  color="#EA3C53"
+					  color={colors.error}
 					  onPress={() => this.props.answerQuestion(player.id,0)}
 					/>
 				</View>

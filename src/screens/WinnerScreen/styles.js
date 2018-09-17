@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 	},
 	infoText:{
 		fontSize: 19,
-		color: colors.text,
+		color: colors.secundary,
 		fontWeight:'bold'
 	},
 	subInfo:{
@@ -35,9 +35,9 @@ const styles = StyleSheet.create({
 	},
 	subInfoText:{
 		textAlign:'center',
-		fontSize:12.5,
+		fontSize:13,
 		fontWeight:'bold',
-		color : colors.text
+		color : colors.secundary
 	},
 	image:{
 		aspectRatio: 1

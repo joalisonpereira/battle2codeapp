@@ -10,11 +10,13 @@ const styles = StyleSheet.create({
 		backgroundColor: colors.input,
 		fontSize: fonts.input,
 		fontWeight:'bold',
-		color: colors.text,
-		textAlign: 'center'
+		textAlign: 'center',
+		color: colors.secundary,
+		elevation:2
 	},
 	error:{
-		borderColor:'#EA3C53'
+		borderColor:'#EA3C53',
+		borderWidth:2
 	}
 });
 

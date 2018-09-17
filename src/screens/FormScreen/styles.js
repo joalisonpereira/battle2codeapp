@@ -10,12 +10,22 @@ const styles = StyleSheet.create({
 	},
 	titleContainer:{
 		alignSelf:'center',
-		justifyContent:'center'
+		justifyContent:'center',
+		flexDirection:'row'
 	},
 	title:{
 		fontSize:fonts.title,
+		fontWeight:'400',
+		color:colors.text,
+		elevation:3
+	},
+	titleMiddle:{
+		fontSize:fonts.title,
 		fontWeight:'bold',
-		color:colors.text
+		color:colors.primary,
+		transform: [{ 
+			rotate : '8deg' 
+		}],
 	},
 	form:{
 		marginTop:10

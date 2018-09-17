@@ -16,23 +16,33 @@ const styles = StyleSheet.create({
 		fontWeight: 'bold',
 		color: colors.text
 	},
+	positive:{
+		color: colors.success
+	},
+	negative:{
+		color: colors.error
+	},
 	questionContainer:{
 		height: metrics.screenWidth / 2.5,
 		backgroundColor: colors.input,
 		borderRadius: metrics.baseRadius,
 		alignItems:'center',
 		justifyContent:'center',
+		elevation:3
 	},
 	questionText:{
 		fontSize: 30,
 		textAlign: 'center',
 		fontWeight: 'bold',
-		color: colors.text
+		color: colors.secundary
 	},
 	buttonContainer:{
 		flexDirection:'row',
 		justifyContent:'space-around',
 		marginTop: metrics.doubleBaseMargin
+	},
+	reverse:{
+		flexDirection:'row-reverse'
 	},
 	rotate:{
 		transform: [{ 
