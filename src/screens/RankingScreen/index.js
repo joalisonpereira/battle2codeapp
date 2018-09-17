@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Button from '../../components/Button';
 import FormControl from '../../components/FormControl';
 import RankingList from '../../components/RankingList';
+import ErrorMessage from '../../components/ErrorMessage';
 import styles from './styles';
 
 import { requestWinners } from '../../store/actions';
@@ -20,6 +21,15 @@ class RankingScreen extends Component {
 			<Image
 				source={require('../../assets/images/logo.png')}
 				style={styles.logo}
+			/>
+		);
+	}
+
+	_renderError(){
+		return(
+			<ErrorMessage
+				message={this.props.winners.message}
+				active={this.props.winners.error}
 			/>
 		);
 	}
@@ -49,11 +59,12 @@ class RankingScreen extends Component {
 	}
 
 	render() {
-		const { loading } = this.props.winners;
+		const { loading,error } = this.props.winners;
 		return (
 			<View style={styles.container}>
 				<View style={[styles.wrapper, loading ? styles.centerLogo : null ]}>
 					{ loading ? this._renderLoading() : this._renderContent()}
+					{ error ? this._renderError() : null }
 					{ !loading ? this._renderButton() : null}
 				</View>
 			</View>

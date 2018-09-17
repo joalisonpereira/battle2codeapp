@@ -21,7 +21,10 @@ export function* battleStart(action){
 		});
 	}catch(e){
 		yield put({
-			type: Types.BATTLE_START_ERROR
+			type: Types.BATTLE_START_ERROR,
+			payload:{
+				message : 'Falha ao iniciar batalha'
+			}
 		});
 	}
 }
@@ -52,7 +55,7 @@ export function* storeWinner(action){
 		yield put({
 	 		type: Types.STORE_WINNER_ERROR,
 	 		payload: {
-	 			message: 'Loading error'
+	 			message: 'Falha na operação'
 	 		}
 		});
 	}

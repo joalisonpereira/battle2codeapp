@@ -3,19 +3,19 @@ import { call,put } from 'redux-saga/effects';
 import { Types } from '../actions';
 
 export function* getWinners(){
-	const response = yield call(api.get,'/winners/ranking');
 	try{
+		const response = yield call(api.get,'/winners/ranking');
 		yield put({
-	 		type: Types.SUCCESS_REQUEST_WINNERS,
+	 		type: Types.REQUEST_WINNERS_SUCCESS,
 	 		payload: {
 	 			data: response.data
 	 		}
 		});
 	}catch(e){
 		yield put({
-	 		type: Types.ERROR_REQUEST_WINNERS,
+	 		type: Types.REQUEST_WINNERS_ERROR,
 	 		payload: {
-	 			message: 'Loading error'
+	 			message: 'Falha no carregamento'
 	 		}
 		});
 	}

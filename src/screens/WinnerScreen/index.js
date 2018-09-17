@@ -33,8 +33,11 @@ class WinnerScreen extends Component {
           style={styles.image}
         />
         <View style={styles.info}>
-          <Text style={styles.infoText}>PARTIDA EMPATADA</Text>
-          <Text style={styles.infoText}>PONTUAÇÃO : {this.props.battle.winner.score}</Text>
+          <Text style={styles.infoText}>BATALHA EMPATADA</Text>
+          <Text style={styles.infoText}>PONTUAÇÃO: {this.props.battle.winner.score}</Text>
+          <View style={styles.subInfo}>
+            <Text style={styles.subInfoText}>Partidas empatadas não são salvas no ranking</Text>
+          </View>
         </View>
       </View>
     );

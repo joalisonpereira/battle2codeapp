@@ -18,7 +18,8 @@ const styles = StyleSheet.create({
 		borderRadius: metrics.baseRadius
 	},
 	info:{
-		marginVertical : 40,
+		marginTop : 40,
+		marginBottom : 20,
 		alignItems:'center',
 		justifyContent:'center',
 	},
@@ -26,6 +27,16 @@ const styles = StyleSheet.create({
 		fontSize: 25,
 		color: colors.text,
 		fontWeight:'bold'
+	},
+	subInfo:{
+		width:'60%',
+		marginTop: 15
+	},
+	subInfoText:{
+		textAlign:'center',
+		fontSize:12.5,
+		fontWeight:'bold',
+		color : colors.text
 	},
 	image:{
 		aspectRatio: 1

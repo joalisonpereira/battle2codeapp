@@ -1,5 +1,5 @@
 import React from 'react';
-import { View,StyleSheet,Text,ActivityIndicator } from 'react-native';
+import { View,StyleSheet,ActivityIndicator } from 'react-native';
 import TimerCountdown from 'react-native-timer-countdown';
 
 import formatTime from '../../util/formatTime';

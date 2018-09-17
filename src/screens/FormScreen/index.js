@@ -85,7 +85,7 @@ class FormScreen extends React.Component {
 					/>
 				</FormControl>
 				<ErrorMessage
-					message="Falha ao iniciar batalha"
+					message={this.props.battle.message}
 					active={this.props.battle.error}
 				/>
 				<FormControl>
