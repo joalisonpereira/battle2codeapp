@@ -19,13 +19,12 @@ const styles = StyleSheet.create({
 		elevation:5
 	},
 	info:{
-		marginTop : 30,
 		marginBottom : 20,
 		alignItems:'center',
 		justifyContent:'center',
 	},
 	infoText:{
-		fontSize: 19,
+		fontSize: 22,
 		color: colors.secundary,
 		fontWeight:'bold'
 	},
@@ -40,6 +39,8 @@ const styles = StyleSheet.create({
 		color : colors.secundary
 	},
 	image:{
+		marginTop:20,
+		marginBottom:25,
 		aspectRatio: 1
 	},
 	centerRender:{

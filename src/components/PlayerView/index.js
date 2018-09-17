@@ -22,17 +22,14 @@ class PlayerView extends React.Component{
 		}
 		return null;
 	}
-
-	_reverse(){
-		return Math.random() >= 0.5;
-	}
 	
-	componentDidUpdate(prevProps){
-		const { battle,player } = this.props;
+	 componentWillReceiveProps(prevProps){
+		const { battle,player } = prevProps;
 		if((player.questionId)==battle.questions.length){
 			this.props.storeWinner(battle);
 		}
 	}
+	
 
 	render(){
 		const { battle,player } = this.props;
@@ -52,16 +49,16 @@ class PlayerView extends React.Component{
 						{question.question}
 					</Text>
 				</View>
-				<View style={[styles.buttonContainer,this._reverse() ? styles.reverse : null]}>
+				<View style={styles.buttonContainer}>
 					<Button
 					  title="VERDADEIRO"
 					  color={colors.success}
-					  onPress={() => this.props.answerQuestion(player.id,1)}
+					  onPress={() => this.props.answerQuestion(player.id,1,battle.questions.length==player.questionId+1)}
 					/>
 					<Button
 					  title="FALSO"
 					  color={colors.error}
-					  onPress={() => this.props.answerQuestion(player.id,0)}
+					  onPress={() => this.props.answerQuestion(player.id,0,battle.questions.length==player.questionId+1)}
 					/>
 				</View>
 			</View>

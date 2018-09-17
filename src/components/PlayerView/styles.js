@@ -41,9 +41,6 @@ const styles = StyleSheet.create({
 		justifyContent:'space-around',
 		marginTop: metrics.doubleBaseMargin
 	},
-	reverse:{
-		flexDirection:'row-reverse'
-	},
 	rotate:{
 		transform: [{ 
 			rotate : '180deg' 

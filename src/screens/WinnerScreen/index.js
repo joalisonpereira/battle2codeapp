@@ -13,13 +13,16 @@ class WinnerScreen extends Component {
     const { winner } = this.props.battle; 
     return(
       <View style={styles.centerRender}>
+        <View style={styles.info}>
+          <Text style={styles.infoText}>BATALHA FINALIZADA</Text>
+        </View>
         <Image
-          source={require('../../assets/images/crown.png')}
+          source={require('../../assets/images/winner.png')}
           style={styles.image}
         />
         <View style={styles.info}>
-          <Text style={styles.infoText}>PARABENS {this.props.battle.winner.name}</Text>
-          <Text style={styles.infoText}>PONTUAÇÃO : {this.props.battle.winner.score}</Text>
+          <Text style={styles.infoText}>VENCEDOR {this.props.battle.winner.name}</Text>
+          <Text style={styles.infoText}>PONTUAÇÃO: {this.props.battle.winner.score}</Text>
         </View>
       </View>
     );
@@ -29,7 +32,7 @@ class WinnerScreen extends Component {
     return(
       <View style={styles.centerRender}>
         <Image
-          source={require('../../assets/images/smile.jpg')}
+          source={require('../../assets/images/swords.png')}
           style={styles.image}
         />
         <View style={styles.info}>

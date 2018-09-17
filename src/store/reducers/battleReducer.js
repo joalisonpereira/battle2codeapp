@@ -37,4 +37,5 @@ function getStateAfterQuestion(state,action){
 	return newState;
 }
 
+
 export default battleReducer;
