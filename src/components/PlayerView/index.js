@@ -1,19 +1,14 @@
 import React from 'react';
 import { View,Text,ActivityIndicator } from 'react-native';
 import { connect } from 'react-redux';
-import { answerQuestion,storeWinner } from '../../store/actions';
+import { answerQuestion } from '../../store/actions';
 
 import Button from '../../components/Button';
 import { colors,metrics } from '../../styles';
 import styles from './styles'
 
 class PlayerView extends React.Component{
-
-	_getQuestion(id){
-		const {questions} = this.props.battle;
-		return question = questions[id] != null ? questions[id] : 'asodijsad';
-	}
-
+	
 	_selectColor(score){
 		if(score>0){
 			return styles.positive;
@@ -22,18 +17,11 @@ class PlayerView extends React.Component{
 		}
 		return null;
 	}
-	
-	 componentWillReceiveProps(prevProps){
-		const { battle,player } = prevProps;
-		if((player.questionId)==battle.questions.length){
-			this.props.storeWinner(battle);
-		}
-	}
-	
 
 	render(){
 		const { battle,player } = this.props;
-		const question = this._getQuestion(player.questionId);
+		const question = battle.questions[player.questionId];
+		const isLast = battle.questions.length == player.questionId + 1;
 		return(
 			<View style={[styles.container, this.props.rotate ? styles.rotate : null]}>
 				<View style={styles.infoContainer}>
@@ -53,12 +41,14 @@ class PlayerView extends React.Component{
 					<Button
 					  title="VERDADEIRO"
 					  color={colors.success}
-					  onPress={() => this.props.answerQuestion(player.id,1,battle.questions.length==player.questionId+1)}
+					  onPress={() => this.props.answerQuestion(player.id,1,isLast)}
+					  icon="check"
 					/>
 					<Button
 					  title="FALSO"
 					  color={colors.error}
-					  onPress={() => this.props.answerQuestion(player.id,0,battle.questions.length==player.questionId+1)}
+					  onPress={() => this.props.answerQuestion(player.id,0,isLast)}
+					  icon="close"
 					/>
 				</View>
 			</View>
@@ -72,7 +62,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
 	answerQuestion,
-	storeWinner
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(PlayerView);

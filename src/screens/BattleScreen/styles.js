@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
 	},
 	divider:{
 		borderBottomColor: '#DCDCDC',
-		borderBottomWidth: 5,
+		borderBottomWidth: 2,
 	}
 });
 

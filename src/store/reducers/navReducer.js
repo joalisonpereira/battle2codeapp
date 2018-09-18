@@ -11,12 +11,14 @@ const navReducer = (state,action) => {
 				NavigationActions.navigate({ routeName: 'Battle' })),
 				state
 			break;
-		case Types.STORE_WINNER_SUCCESS:
-        case Types.STORE_WINNER_NULL:
-			newState = Router.router.getStateForAction(
-				NavigationActions.navigate({ routeName: 'Winner' })),
-				state
-            break;
+        case Types.ANSWER_QUESTION:
+			if(action.payload.isLast){
+				newState = Router.router.getStateForAction(
+					NavigationActions.navigate({ routeName: 'Winner' })),
+					state
+	            break;
+			}
+        	break;
         case Types.STORE_WINNER_ERROR:
 			newState = Router.router.getStateForAction(
 				NavigationActions.navigate({ routeName: 'Form' })),

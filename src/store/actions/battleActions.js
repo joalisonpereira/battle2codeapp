@@ -20,12 +20,12 @@ export const battleStart = (player1,player2) => ({
 	}
 });
 
-export const answerQuestion = (playerId,answer,redirect) => ({
+export const answerQuestion = (playerId,answer,isLast) => ({
 	type: Types.ANSWER_QUESTION,
 	payload:{
 		playerId,
 		answer,
-		redirect
+		isLast
 	}
 });
 

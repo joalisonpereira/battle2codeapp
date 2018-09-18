@@ -16,7 +16,8 @@ const styles = StyleSheet.create({
 		alignItems:'center',
 		justifyContent:'center',
 		borderRadius: metrics.baseRadius,
-		elevation:5
+		elevation:5,
+		paddingHorizontal: metrics.baseMargin
 	},
 	info:{
 		marginBottom : 20,
@@ -46,6 +47,13 @@ const styles = StyleSheet.create({
 	centerRender:{
 		alignItems:'center',
 		justifyContent:'center',
+	},
+	buttonContainer:{
+		width:'100%'
+	},
+	logo:{
+		width: 50,
+		height: 50
 	}
 });
 
