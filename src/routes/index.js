@@ -7,11 +7,11 @@ import WinnerScreen from '../screens/WinnerScreen';
 import RankingScreen from '../screens/RankingScreen';
 
 const Router = createStackNavigator({
+	Tutorial : TutorialScreen,
 	Form : FormScreen,
 	Battle : BattleScreen,
-	Ranking : RankingScreen,
 	Winner : WinnerScreen,
-	Tutorial : TutorialScreen,
+	Ranking : RankingScreen,
 },{
 	navigationOptions : {
 		header : null

@@ -7,7 +7,3 @@ const colors = {
   error : '#EA3C53'
 };
 export default colors;
-
-//Orange #f2a104
-
-//Blue #0AAFF1
