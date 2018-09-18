@@ -6,7 +6,7 @@ import store from './store';
 import Router from './routes';
 
 const RouterNavigator = reduxifyNavigator(Router, "root");
-const mapStateToProps = (state) => ({ state: state.nav });
+const mapStateToProps = state => ({ state: state.nav });
 const RouterNavigatorState = connect(mapStateToProps)(RouterNavigator);
 
 const App = () => (

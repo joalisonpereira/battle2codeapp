@@ -38,11 +38,11 @@ class RankingScreen extends Component {
 		return(
 			<ScrollView>
 				<View style={styles.titleContainer}>
-					<Text style={styles.titleText}>Ranking</Text>
+					<Text style={styles.titleText}>
+						Ranking
+					</Text>
 				</View>
-				<RankingList
-					winners={this.props.winners}
-				/>
+				<RankingList winners={this.props.winners}/>
 			</ScrollView>
 		);
 	}
@@ -52,7 +52,7 @@ class RankingScreen extends Component {
 			<FormControl style={{marginTop:25}}>
 				<Button
 					title="JOGAR AGORA"
-					onPress={ () => this.props.navigation.replace("Form")}
+					onPress={() => this.props.navigation.replace("Form")}
 				/>
 			</FormControl>
 		);

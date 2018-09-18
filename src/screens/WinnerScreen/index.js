@@ -20,15 +20,21 @@ class WinnerScreen extends Component {
     return(
       <View style={styles.centerRender}>
         <View style={styles.info}>
-          <Text style={styles.infoText}>BATALHA FINALIZADA</Text>
+          <Text style={styles.infoText}>
+            BATALHA FINALIZADA
+          </Text>
         </View>
         <Image
           source={require('../../assets/images/winner.png')}
           style={styles.image}
         />
         <View style={styles.info}>
-          <Text style={styles.infoText}>VENCEDOR: {this.props.battle.winner.name}</Text>
-          <Text style={styles.infoText}>PONTUAÇÃO: {this.props.battle.winner.score}</Text>
+          <Text style={styles.infoText}>
+            VENCEDOR: {this.props.battle.winner.name}
+          </Text>
+          <Text style={styles.infoText}>
+            PONTUAÇÃO: {this.props.battle.winner.score}
+          </Text>
         </View>
       </View>
     );
@@ -42,10 +48,16 @@ class WinnerScreen extends Component {
           style={styles.image}
         />
         <View style={styles.info}>
-          <Text style={styles.infoText}>BATALHA EMPATADA</Text>
-          <Text style={styles.infoText}>PONTUAÇÃO: {this.props.battle.winner.score}</Text>
+          <Text style={styles.infoText}>
+            BATALHA EMPATADA
+          </Text>
+          <Text style={styles.infoText}>
+            PONTUAÇÃO: {this.props.battle.winner.score}
+          </Text>
           <View style={styles.subInfo}>
-            <Text style={styles.subInfoText}>Partidas empatadas não são salvas no ranking</Text>
+            <Text style={styles.subInfoText}>
+              Partidas empatadas não são salvas no ranking
+            </Text>
           </View>
         </View>
       </View>
@@ -64,7 +76,7 @@ class WinnerScreen extends Component {
           </FormControl>
           <Button
             title="VER RANKING"
-            color="#FFD300"
+            color="#FED656"
             onPress={() => this.props.navigation.replace('Ranking')}
           />
         </View>
@@ -83,11 +95,10 @@ class WinnerScreen extends Component {
 
   _renderContent(){
     if(this.props.battle.winner){
-      if(this.props.battle.winner.name){
-        return this._renderIfExistsWinner();
-      }else{
-        return this._renderIfNullWinner();
-      }
+      return this.props.battle.winner.name ? 
+        this._renderIfExistsWinner() 
+      : 
+        this._renderIfNullWinner()
     }else{
       return this._renderLoading();
     }
