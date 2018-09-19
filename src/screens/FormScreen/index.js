@@ -17,8 +17,8 @@ class FormScreen extends React.Component {
 	  super(props);
 	
 	  this.state = {
-	  	input1 : { value:'TestePlayer1', error:false },
-	  	input2 : { value:'TestePlayer2', error:false }
+	  	input1 : { value:'xxxxxx', error:false },
+	  	input2 : { value:'xxxxxxz', error:false }
 	  };
 	}
 

@@ -51,8 +51,8 @@ class RankingScreen extends Component {
 		return(
 			<FormControl style={{marginTop:25}}>
 				<Button
-					title="JOGAR AGORA"
-					onPress={() => this.props.navigation.replace("Form")}
+					title="MENU PRINCIPAL"
+					onPress={() => this.props.navigation.navigate("Form")}
 				/>
 			</FormControl>
 		);

@@ -7,25 +7,27 @@ export const battleStart = (player1,player2) => ({
 			player1:{
 				id:1,
 				name:player1,
+				score:0,
 				questionId:0,
-				score:0
+				isLastQuestion:false
 			},
 			player2:{
 				id:2,
 				name:player2,
+				score:0,
 				questionId:0,
-				score:0
+				isLastQuestion:false
 			}
 		}
 	}
 });
 
-export const answerQuestion = (playerId,answer,isLast) => ({
+export const answerQuestion = (player,answer) => ({
 	type: Types.ANSWER_QUESTION,
 	payload:{
-		playerId,
-		answer,
-		isLast
+		playerId : player.id,
+		answer : answer,
+		isLastQuestion : player.isLastQuestion
 	}
 });
 

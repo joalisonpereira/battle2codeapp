@@ -13,7 +13,7 @@ const Input = ({style,placeholder,value,onChangeText,errorStyle}) => (
 		onChangeText={onChangeText}
 		placeholderTextColor="#999"
 		underlineColorAndroid="transparent"
-		maxLength={20}
+		maxLength={15}
 	/>
 )
 

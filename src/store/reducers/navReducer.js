@@ -12,7 +12,7 @@ const navReducer = (state,action) => {
 				state
 			break;
         case Types.ANSWER_QUESTION:
-			if(action.payload.isLast){
+			if(action.payload.isLastQuestion){
 				newState = Router.router.getStateForAction(
 					NavigationActions.navigate({ routeName: 'Winner' })),
 					state

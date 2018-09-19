@@ -44,7 +44,7 @@ class WinnerScreen extends Component {
     return(
       <View style={styles.centerRender}>
         <Image
-          source={require('../../assets/images/swords.png')}
+          source={require('../../assets/images/shield.png')}
           style={styles.image}
         />
         <View style={styles.info}>
@@ -56,7 +56,7 @@ class WinnerScreen extends Component {
           </Text>
           <View style={styles.subInfo}>
             <Text style={styles.subInfoText}>
-              Partidas empatadas não são salvas no ranking
+              Partidas empatadas não são salvas no ranking geral
             </Text>
           </View>
         </View>
@@ -70,14 +70,14 @@ class WinnerScreen extends Component {
         <View style={styles.buttonContainer}>
           <FormControl>
             <Button
-              title="JOGAR NOVAMENTE"
-              onPress={()=>{ this.props.navigation.replace('Form') }}
+              title="MENU PRINCIPAL"
+              onPress={()=>{ this.props.navigation.navigate('Form') }}
             />
           </FormControl>
           <Button
             title="VER RANKING"
             color="#FED656"
-            onPress={() => this.props.navigation.replace('Ranking')}
+            onPress={() => this.props.navigation.navigate('Ranking')}
           />
         </View>
       );

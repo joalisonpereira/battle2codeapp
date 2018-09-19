@@ -27,7 +27,8 @@ const styles = StyleSheet.create({
 	infoText:{
 		fontSize: 22,
 		color: colors.secundary,
-		fontWeight:'bold'
+		fontWeight:'bold',
+		textAlign:'center'
 	},
 	subInfo:{
 		width:'60%',

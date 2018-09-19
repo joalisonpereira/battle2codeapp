@@ -20,8 +20,8 @@ class PlayerView extends React.Component{
 
 	render(){
 		const { battle,player } = this.props;
+		console.log(battle.questions,player.questionId);
 		const question = battle.questions[player.questionId];
-		const isLast = battle.questions.length == player.questionId + 1;
 		return(
 			<View style={[styles.container, this.props.rotate ? styles.rotate : null]}>
 				<View style={styles.infoContainer}>
@@ -37,17 +37,17 @@ class PlayerView extends React.Component{
 						{question.question}
 					</Text>
 				</View>
-				<View style={styles.buttonContainer}>
+				<View style={[styles.buttonContainer,player.changeBtn ? styles.reverse : null]}>
 					<Button
 					  title="VERDADEIRO"
 					  color={colors.success}
-					  onPress={() => this.props.answerQuestion(player.id,1,isLast)}
+					  onPress={() => {this.props.answerQuestion(player,1)}}
 					  icon="check"
 					/>
 					<Button
 					  title="FALSO"
 					  color={colors.error}
-					  onPress={() => this.props.answerQuestion(player.id,0,isLast)}
+					  onPress={() => {this.props.answerQuestion(player,0)}}
 					  icon="close"
 					/>
 				</View>
