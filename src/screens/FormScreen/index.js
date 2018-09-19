@@ -8,7 +8,7 @@ import Input from '../../components/Input';
 import FormControl from '../../components/FormControl';
 import ErrorMessage from '../../components/ErrorMessage';
 import Button from '../../components/Button';
-import validateInput from '../../utils/validation';
+import { validateInput } from '../../utils';
 
 import styles from './styles';
 
@@ -18,8 +18,8 @@ class FormScreen extends React.Component {
 	  super(props);
 	
 	  this.state = {
-	  	input1 : { value:'', error:false },
-	  	input2 : { value:'', error:false }
+	  	input1 : { value:'asdsadsadsa', error:false },
+	  	input2 : { value:'asdsadsadasd', error:false }
 	  };
 	}
 

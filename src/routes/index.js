@@ -7,8 +7,8 @@ import WinnerScreen from '../screens/WinnerScreen';
 import RankingScreen from '../screens/RankingScreen';
 
 const Router = createStackNavigator({
-	Tutorial : TutorialScreen,
 	Form : FormScreen,
+	Tutorial : TutorialScreen,
 	Battle : BattleScreen,
 	Winner : WinnerScreen,
 	Ranking : RankingScreen,

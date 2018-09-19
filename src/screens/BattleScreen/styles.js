@@ -11,6 +11,15 @@ const styles = StyleSheet.create({
 	divider:{
 		borderBottomColor: '#DCDCDC',
 		borderBottomWidth: 2,
+	},
+	timer:{
+		fontWeight:'bold',
+		fontSize:80,
+		color:'white'
+	},
+	timerWrapper:{
+		alignItems:'center',
+		justifyContent:'center'
 	}
 });
 
