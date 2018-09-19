@@ -40,6 +40,11 @@ const styles = StyleSheet.create({
 	button:{
 	   	width: '100%',
 	   	marginLeft: 0
+	},
+	gitIcon:{
+		position:'absolute',
+		right:5,
+		bottom:10
 	}
 });
 

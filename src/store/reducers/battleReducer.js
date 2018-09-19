@@ -33,7 +33,7 @@ function getStateAfterQuestion(state,action){
 	const player = newState.players[`player${playerId}`];
 	const question = newState.questions[player.questionId];
 	question.answer==answer ? player.score+=10 : player.score-=10;
-	player.changeBtn = ++player.questionId % 2 != 0;
+	player.inverseBtn = ++player.questionId % 2 != 0;
 	player.isLastQuestion = newState.questions.length == player.questionId + 1;
 	return newState;
 }

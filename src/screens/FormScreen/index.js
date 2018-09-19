@@ -1,7 +1,8 @@
 import React from 'react';
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, Linking} from 'react-native';
 import { connect } from 'react-redux';
 import { battleStart } from '../../store/actions';
+import { SocialIcon } from 'react-native-elements'
 
 import Input from '../../components/Input';
 import FormControl from '../../components/FormControl';
@@ -17,8 +18,8 @@ class FormScreen extends React.Component {
 	  super(props);
 	
 	  this.state = {
-	  	input1 : { value:'xxxxxx', error:false },
-	  	input2 : { value:'xxxxxxz', error:false }
+	  	input1 : { value:'', error:false },
+	  	input2 : { value:'', error:false }
 	  };
 	}
 
@@ -104,6 +105,15 @@ class FormScreen extends React.Component {
 					/>
 				</FormControl>
 			  </View>
+			  <SocialIcon
+			  	  light
+				  type='github'
+				  style={styles.gitIcon}
+				  iconSize={25}
+				  onPress={
+				  	() => Linking.openURL('https://github.com/joalisonpereira/battle2codeapp')
+				  }
+			  />
 			</View>
 		);
 	}

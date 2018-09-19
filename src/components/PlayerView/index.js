@@ -8,7 +8,7 @@ import { colors,metrics } from '../../styles';
 import styles from './styles'
 
 class PlayerView extends React.Component{
-	
+
 	_selectColor(score){
 		if(score>0){
 			return styles.positive;
@@ -20,7 +20,6 @@ class PlayerView extends React.Component{
 
 	render(){
 		const { battle,player } = this.props;
-		console.log(battle.questions,player.questionId);
 		const question = battle.questions[player.questionId];
 		return(
 			<View style={[styles.container, this.props.rotate ? styles.rotate : null]}>
@@ -37,7 +36,7 @@ class PlayerView extends React.Component{
 						{question.question}
 					</Text>
 				</View>
-				<View style={[styles.buttonContainer,player.changeBtn ? styles.reverse : null]}>
+				<View style={[styles.buttonContainer,player.inverseBtn ? styles.reverse : null]}>
 					<Button
 					  title="VERDADEIRO"
 					  color={colors.success}

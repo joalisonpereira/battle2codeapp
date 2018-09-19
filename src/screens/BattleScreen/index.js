@@ -10,9 +10,16 @@ class BattleScreen extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<PlayerView player={this.props.battle.players.player1} />
+				<PlayerView 
+					id={1} 
+					player={this.props.battle.players.player1} 
+				/>
 				<View style={styles.divider} />
-				<PlayerView player={this.props.battle.players.player2} rotate />
+				<PlayerView 
+					id={2} 
+					player={this.props.battle.players.player2} 
+					rotate 
+				/>
 			</View>
 		);
 	}
